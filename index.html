@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HCOC MENTAL HEALTH CORPORATION | Therapist Education & Self-Care Support</title>
+    <style>
+        /* 基础样式保持不变，仅优化渲染性能 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+            -webkit-font-smoothing: antialiased; /* 文字渲染优化 */
+        }
+
+        a {
+            text-decoration: none;
+            color: #0066cc;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #004499;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            text-transform: uppercase;
+            font-size: 14px;
+        }
+
+        .contact-donate-btn {
+            background-color: #0066cc;
+            color: white !important;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            display: inline-block;
+        }
+
+        .contact-donate-btn:hover {
+            background-color: #004499;
+        }
+
+        /* Hero 优化：增加图片尺寸控制参数 */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1551434678-e076c223a692?q=80&w=1200&auto=format&fit=crop') center/cover no-repeat;
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding: 0 20px;
+            position: relative;
+        }
+
+        .hero-content h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+        }
+
+        .hero-content p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+        }
+
+        .hero-btn {
+            background-color: #0066cc;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 5px;
+            font-size: 18px;
+            font-weight: 600;
+            text-transform: uppercase;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .hero-btn:hover {
+            background-color: #004499;
+        }
+
+        .resource-guide { padding: 80px 0; background-color: #fff; }
+        .section-title { text-align: center; font-size: 36px; margin-bottom: 50px; color: #2b2d42; }
+        .guide-content { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
+        .guide-text h3 { font-size: 28px; margin-bottom: 20px; color: #2b2d42; }
+        .guide-text p { font-size: 18px; margin-bottom: 15px; color: #4a4e69; }
+        .guide-text ul { margin-left: 20px; margin-bottom: 20px; }
+        .guide-text li { font-size: 18px; margin-bottom: 10px; color: #4a4e69; }
+        
+        /* 图片容器优化：设定纵横比防止页面抖动 */
+        .guide-img img, .about-img img { 
+            width: 100%; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); 
+            aspect-ratio: 12/8; object-fit: cover;
+        }
+
+        .program-stories { padding: 80px 0; background-color: #f1faee; }
+        .stories-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 30px; }
+        .story-card { background-color: white; border-radius: 10px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1); transition: transform 0.3s ease; }
+        .story-card:hover { transform: translateY(-10px); }
+        .story-img img { width: 100%; height: 200px; object-fit: cover; }
+        .story-content { padding: 20px; }
+        .story-content h4 { font-size: 20px; margin-bottom: 10px; color: #2b2d42; }
+        .story-content p { color: #4a4e69; margin-bottom: 15px; }
+
+        .support-section { padding: 80px 0; background-color: #fff; text-align: center; }
+        .contact-info-box { background-color: #f8f9fa; padding: 40px; border-radius: 10px; max-width: 700px; margin: 0 auto; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+
+        .about-us { padding: 80px 0; background-color: #e9ecef; }
+        .about-content { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
+
+        footer { background-color: #2b2d42; color: white; padding: 60px 0 20px; }
+        .footer-content { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; margin-bottom: 40px; }
+        .footer-column h4 { font-size: 20px; margin-bottom: 20px; color: #f8f9fa; }
+        .footer-column ul { list-style: none; }
+        .footer-column li { margin-bottom: 10px; }
+        .footer-column a { color: #adb5bd; }
+        .social-links { display: flex; gap: 15px; margin-top: 20px; }
+        .social-links a { color: white; background-color: #4a4e69; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+
+        @media (max-width: 992px) {
+            .guide-content, .about-content { grid-template-columns: 1fr; }
+            .hero-content h1 { font-size: 36px; }
+        }
+        @media (max-width: 576px) {
+            .navbar { flex-direction: column; gap: 15px; }
+            .hero { height: 70vh; }
+            .hero-content h1 { font-size: 24px; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <nav class="navbar">
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#resource-guide">Our Resources</a></li>
+                <li><a href="#programs">Program Stories</a></li>
+                <li><a href="#support">Support Us</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><span class="contact-donate-btn" onclick="window.location.href='#support'">Support - Contact Us</span></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<section id="home" class="hero">
+    <div class="hero-content">
+        <h1>Empowering Therapists Through Education & Self-Care</h1>
+        <p>HCOC MENTAL HEALTH CORPORATION is a 501(c)(3) charitable non-profit dedicated to providing high-quality educational resources, continuing education, and self-care support for mental health therapists across New York and beyond.</p>
+        <button class="hero-btn" onclick="window.location.href='#resource-guide'">Explore Our Resources</button>
+    </div>
+</section>
+
+<section id="resource-guide" class="resource-guide">
+    <div class="container">
+        <h2 class="section-title">Therapist Resources & Continuing Education</h2>
+        <div class="guide-content">
+            <div class="guide-text">
+                <h3>Our Core Offerings for Mental Health Practitioners</h3>
+                <p>We provide tailored educational resources and support to help therapists advance their practice, maintain professional development, and prioritize their own mental health and self-care:</p>
+                <ul>
+                    <li><strong>Continuing Education:</strong> Accessible, relevant CE courses aligned with mental health industry standards and best practices.</li>
+                    <li><strong>Self-Care Support:</strong> Curated resources, workshops, and tools to help therapists build sustainable self-care routines.</li>
+                    <li><strong>Educational Materials:</strong> Comprehensive guides, webinars, and resources for evidence-based therapeutic practice.</li>
+                    <li><strong>Community Connection:</strong> Opportunities to connect with fellow therapists for peer support and knowledge sharing.</li>
+                </ul>
+                <p><strong>General Inquiries:</strong> contact@hcocmentalhealth.org</p>
+            </div>
+            <div class="guide-img">
+                <img src="https://images.unsplash.com/photo-1551847677-dc82d764e1eb?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Therapist educational resources" loading="lazy">
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="programs" class="program-stories">
+    <div class="container">
+        <h2 class="section-title">Our Impact & Program Stories</h2>
+        <div class="stories-grid">
+            <div class="story-card">
+                <div class="story-img">
+                    <img src="https://images.unsplash.com/photo-1491438590914-bc09fcaaf77a?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="CE Course Series" loading="lazy">
+                </div>
+                <div class="story-content">
+                    <h4>CE Course Series for Trauma Therapists</h4>
+                    <p>Our trauma-informed continuing education course series equipped over 50 local therapists with evidence-based tools to support trauma survivors, with 98% of participants reporting improved clinical practice.</p>
+                    <a href="#programs">Read Full Story →</a>
+                </div>
+            </div>
+
+            <div class="story-card">
+                <div class="story-img">
+                    <img src="https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?q=80&w=500" alt="Self-Care Workshops" loading="lazy">
+                </div>
+                <div class="story-content">
+                    <h4>Therapist Self-Care Workshops</h4>
+                    <p>Our monthly self-care workshops for mental health practitioners created a safe space for peer support and skill-building, helping therapists reduce burnout and build sustainable self-care habits.</p>
+                    <a href="#programs">Read Full Story →</a>
+                </div>
+            </div>
+
+            <div class="story-card">
+                <div class="story-img">
+                    <img src="https://images.unsplash.com/photo-1517960413843-0aee8e2b3285?q=80&w=1199&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Educational Resource Library" loading="lazy">
+                </div>
+                <div class="story-content">
+                    <h4>Free Educational Resource Library</h4>
+                    <p>We launched a free online resource library with over 100 evidence-based therapeutic guides, checklists, and toolkits, making high-quality education accessible to therapists of all experience levels.</p>
+                    <a href="#programs">Read Full Story →</a>
+                </div>
+            </div>
+
+            <div class="story-card">
+                <div class="story-img">
+                    <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=500" alt="Peer Support Groups" loading="lazy">
+                </div>
+                <div class="story-content">
+                    <h4>Therapist Peer Support Groups</h4>
+                    <p>Our weekly peer support groups for early-career therapists fostered connection and knowledge sharing, with participants reporting increased confidence and reduced professional isolation.</p>
+                    <a href="#programs">Read Full Story →</a>
+                </div>
+            </div>
+
+            <div class="story-card">
+                <div class="story-img">
+                    <img src="https://images.unsplash.com/photo-1619241638225-14d56e47ae64?q=80&w=500" alt="Rural Therapist Program" loading="lazy">
+                </div>
+                <div class="story-content">
+                    <h4>Rural Therapist Outreach Program</h4>
+                    <p>Our rural therapist outreach program brought free CE courses and resources to underserved mental health practitioners in upstate New York, expanding access to quality professional development.</p>
+                    <a href="#programs">Read Full Story →</a>
+                </div>
+            </div>
+
+            <div class="story-card">
+                <div class="story-img">
+                    <img src="https://images.unsplash.com/photo-1554244933-d876deb6b2ff?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Youth Mental Health Resources" loading="lazy">
+                </div>
+                <div class="story-content">
+                    <h4>Youth Mental Health Resource Hub</h4>
+                    <p>We created a dedicated resource hub for therapists working with youth, featuring age-appropriate therapeutic tools, CE content, and self-care strategies for pediatric mental health practitioners.</p>
+                    <a href="#programs">Read Full Story →</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="support" class="support-section">
+    <div class="container">
+        <h2 class="section-title">Support Our Mission</h2>
+        <div class="donate-content">
+            <h3>Your Support Empowers Mental Health Therapists</h3>
+            <p>HCOC MENTAL HEALTH CORPORATION is a 501(c)(3) charitable non-profit that relies on community and donor support to provide free and low-cost educational resources, continuing education, and self-care support for mental health therapists across New York.</p>
+            
+            <div class="contact-info-box">
+                <h4>For Donations & Partnership Inquiries</h4>
+                <div style="margin-bottom:15px;">📧 Email: contact@hcocmentalhealth.org</div>
+                <div style="margin-bottom:15px;">📍 Physical Address: 1100 MAIN STREET SUITE 100A, BUFFALO, New York 14209-2308</div>
+                <div>📋 EIN: 39-2572821</div>
+            </div>
+            
+            <p style="margin-top:30px;"><strong>Tax Information:</strong> HCOC MENTAL HEALTH CORPORATION is a 501(c)(3) charitable nonprofit organization (EIN: 39-2572821). All donations are tax-deductible to the extent allowed by law.</p>
+        </div>
+    </div>
+</section>
+
+<section id="about" class="about-us">
+    <div class="container">
+        <h2 class="section-title">About HCOC Mental Health Corporation</h2>
+        <div class="about-content">
+            <div class="about-img">
+                <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=800" alt="HCOC Mental Health Corporation" loading="lazy">
+            </div>
+            <div class="about-text">
+                <h3>Our Mission & Charitable Purpose</h3>
+                <p>Founded in 2025, HCOC MENTAL HEALTH CORPORATION is a New York-based 501(c)(3) charitable non-profit organized under the New York Not-for-Profit Corporation Law. Our core mission is to provide high-quality educational resources, continuing education opportunities, and self-care support to mental health therapists—with no focus on providing licensed professional services.</p>
+                <p>We are committed to advancing the practice of mental health care by equipping therapists with the tools, knowledge, and support they need to deliver exceptional care to their clients, while also prioritizing the therapists' own mental health and professional well-being.</p>
+                <p>All our efforts are exclusively charitable and aligned with Section 501(c)(3) of the Internal Revenue Code, with no part of our net earnings inuring to the benefit of private individuals.</p>
+                <p><strong>Physical Address:</strong> 1100 MAIN STREET SUITE 100A, BUFFALO, New York 14209-2308</p>
+                <p><strong>EIN:</strong> 39-2572821 | 501(c)(3) Charitable Non-Profit</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer id="contact">
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-column">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#resource-guide">Our Resources</a></li>
+                    <li><a href="#programs">Program Stories</a></li>
+                    <li><a href="#support">Support Us</a></li>
+                    <li><a href="#about">About Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Contact Us</h4>
+                <p>HCOC MENTAL HEALTH CORPORATION<br>1100 MAIN STREET SUITE 100A<br>BUFFALO, New York 14209-2308<br>Email: contact@hcocmentalhealth.org</p>
+            </div>
+            <div class="footer-column">
+                <h4>Get Involved</h4>
+                <ul>
+                    <li><a href="#donate">Donate</a></li>
+                    <li><a href="#partnerships">Become a Partner</a></li>
+                    <li><a href="#volunteer">Volunteer</a></li>
+                </ul>
+            </div>
+        </div>
+        <div style="text-align:center; padding-top:20px; border-top:1px solid #4a4e69; color:#adb5bd; font-size:14px;">
+            &copy; 2025 HCOC MENTAL HEALTH CORPORATION | EIN: 39-2572821 | 501(c)(3) Charitable Non-Profit | All Rights Reserved
+        </div>
+    </div>
+</footer>
+
+<script>
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+        });
+    });
+</script>
+</body>
+</html>
